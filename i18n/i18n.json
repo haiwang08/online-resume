@@ -1,0 +1,54 @@
+{
+    "ja": {
+        "label": {
+            "title": "履歴書",
+            "furigana": "ふりがな",
+            "now": "現在",
+            "name": "氏　名",
+            "agePrefix": "満",
+            "ageSuffix": "歳",
+            "birthdate": "生年月日",
+            "gender": "性別",
+            "address": "現住所",
+            "phone": "電話",
+            "contact": "連絡先",
+            "male": "男",
+            "female": "女",
+            "genderOptionalNote": "※『性別』欄：記載は任意です。未記載とすることも可能です",
+            "contactNote": "（現住所以外に連絡を希望する場合のみ記入）"
+        },
+        "placeholder": {
+            "address": "〒　　　　　　　　　　　　都道府県",
+            "phone": "　　　　　　　　　　　　　　電話",
+            "contactAddress": "連絡先住所（現住所以外）",
+            "email": "E-mail",
+            "photoInstructions": "写真をはる位置<br>写真をはる必要がある場合<br><br>1. 36×40mm<br>　 24×30mm<br>2. 本人単身胸から上<br>3. 裏面のりづけ"
+        }
+    },
+    "en": {
+        "label": {
+            "title": "Resume",
+            "furigana": "Furigana",
+            "now": "now",
+            "name": "Name",
+            "agePrefix": "Age",
+            "ageSuffix": "",
+            "birthdate": "Birthdate",
+            "gender": "Gender",
+            "address": "Address",
+            "phone": "Phone",
+            "contact": "Contact",
+            "male": "Male",
+            "female": "Female",
+            "genderOptionalNote": "Gender field: filling it is optional. You may leave it blank.",
+            "contactNote": "(Only fill in if you prefer to be contacted at a different address)"
+        },
+        "placeholder": {
+            "address": "Postal code, Prefecture / State",
+            "phone": "Phone",
+            "contactAddress": "Alternate contact address",
+            "email": "E-mail",
+            "photoInstructions": "Photo area<br>If a photo is required:<br><br>1. 36×40mm tall<br>   24×30mm wide<br>2. Upper body, single person<br>3. Glue on the back"
+        }
+    }
+}

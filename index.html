@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>履歴書</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="./common.js"></script>
+        <script src="./main.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div
+                class="toolbar"
+                id="lang-toolbar"
+                style="margin: 10px 0; text-align: right"
+            >
+                <!--
+                <label for="calendar-type" style="margin-right: 6px"
+                    >紀年 / Calendar</label
+                >
+                <select id="calendar-type" style="margin-right: 30px">
+                    <option value="nh-gengou">元号</option>
+                    <option value="en-greg">Gregorian</option>
+                </select>
+                
+            -->
+                <label for="lang" style="margin-right: 6px"
+                    >言語 / Language</label
+                >
+                <select id="lang">
+                    <!--
+                    <option value="ja">日本語</option>
+                    <option value="en">English</option>
+                    -->
+                    <option value="empty"></option>
+                    <option value="meiyou">别选了，没做呢</option>
+                </select>
+            </div>
+            <div class="container">
+                <div class="header">
+                    <h1 data-i18n="label.title">履　歴　書</h1>
+                </div>
+                <div class="date-line">
+                    <span type="text" id="or_now" class="or_date">m/d</span>
+                    <span class="now-label" data-i18n="label.now">現在</span>
+                </div>
+                <div class="main-content">
+                    <div class="left-section">
+                        <div class="name-row">
+                            <div class="name-left">
+                                <div class="furigana-row">
+                                    <span data-i18n="label.furigana"
+                                        >ふりがな</span
+                                    >　<input
+                                        type="text"
+                                        id="or_furigana"
+                                        class="furigana-input"
+                                    />
+                                </div>
+                                <div>
+                                    <span data-i18n="label.name">氏　名</span
+                                    >　<input
+                                        type="text"
+                                        id="or_name"
+                                        class="name-input"
+                                    />
+                                </div>
+                            </div>
+                            <div class="age-section">
+                                <span data-i18n="label.agePrefix">満</span>
+                                <input
+                                    type="number"
+                                    id="or_age"
+                                    class="age-input"
+                                />
+                                歳
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="photo-section"
+                        onclick="$('#or_picture').click()"
+                    >
+                        <div
+                            class="photo-placeholder"
+                            data-i18n-html="placeholder.photoInstructions"
+                        >
+                            写真をはる位置<br />写真をはる必要が<br />ある場合<br /><br />1.縦
+                            36～40mm<br />　横 24～30mm<br />2.本人単身胸から上<br />3.裏面のりづけ
+                        </div>
+                    </div>
+                    <input
+                        hidden
+                        type="file"
+                        id="or_picture"
+                        accept="image/*"
+                    />
+                </div>
+                <table class="info-table">
+                    <tr>
+                        <td class="info-label" data-i18n="label.birthdate">
+                            生年月日
+                        </td>
+                        <td class="info-content">
+                            <div class="birthdate-section">
+                                <input
+                                    type="text"
+                                    id="or_birthdate"
+                                    class="furigana-input"
+                                    placeholder="年　月"
+                                    style="width: 40%"
+                                /><span style="margin-left: 20px"
+                                    >※<span data-i18n="label.gender"
+                                        >性別</span
+                                    ></span
+                                >
+                                <div
+                                    class="gender-section"
+                                    style="margin-left: 20px"
+                                >
+                                    <div class="gender-option">
+                                        <input
+                                            type="radio"
+                                            id="or_male"
+                                            name="or_gender"
+                                            value="男"
+                                        /><label for="or_male">男</label>
+                                    </div>
+                                    <div class="gender-option">
+                                        <input
+                                            type="radio"
+                                            id="or_female"
+                                            name="or_gender"
+                                            value="女"
+                                        /><label for="or_female">女</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="note-text">
+                                ※「性別」欄：記載は任意です。未記載とすることも可能です。
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">現住所</td>
+                        <td class="info-content">
+                            <input
+                                type="text"
+                                id="or_address"
+                                placeholder="〒　　　　　　　　　　　　都道府県"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">電話</td>
+                        <td class="info-content">
+                            <input
+                                type="tel"
+                                id="or_phone"
+                                placeholder="　　　　　　　　　　　　　　電話"
+                                style="width: 200px"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">連絡先</td>
+                        <td class="info-content">
+                            <input
+                                type="text"
+                                id="or_contact"
+                                placeholder="〒"
+                                style="margin-bottom: 8px"
+                            />
+                            <div class="contact-label">
+                                (現住所以外に連絡を希望する場合のみ記入)
+                            </div>
+                            <input
+                                type="tel"
+                                id="or_contact_phone"
+                                placeholder="電話"
+                                style="margin-top: 8px"
+                            /><input
+                                type="email"
+                                id="or_contact_email"
+                                placeholder="E-mail"
+                                style="margin-top: 8px"
+                            />
+                        </td>
+                    </tr>
+                </table>
+                <div class="section-title">
+                    学 歴 ・ 職 歴 （各別にまとめて書く）
+                </div>
+                <table class="history-table">
+                    <tbody id="or_history">
+                        <tr>
+                            <td class="date-col">
+                                <input
+                                    type="text"
+                                    class="date-input"
+                                    placeholder="年　月"
+                                />
+                            </td>
+                            <td class="description-col">
+                                <div
+                                    class="description-input"
+                                    contenteditable="true"
+                                ></div>
+                            </td>
+                            <td style="width: 60px; text-align: center">
+                                <button
+                                    class="btn btn-remove"
+                                    onclick="removeHistory(this)"
+                                >
+                                    削除
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-add" onclick="addHistory()">
+                    + 学歴・職歴追加
+                </button>
+                <div class="section-title" style="margin-top: 30px">
+                    資 格 ・ 免 許
+                </div>
+                <table class="history-table">
+                    <tbody id="l">
+                        <tr>
+                            <td class="date-col">
+                                <input
+                                    type="text"
+                                    class="date-input"
+                                    placeholder="年　月"
+                                />
+                            </td>
+                            <td class="description-col">
+                                <div
+                                    class="description-input"
+                                    contenteditable="true"
+                                ></div>
+                            </td>
+                            <td style="width: 60px; text-align: center">
+                                <button
+                                    class="btn btn-remove"
+                                    onclick="rl(this)"
+                                >
+                                    削除
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-add" onclick="al()">
+                    + 資格・免許追加
+                </button>
+                <div class="motivation-section" style="margin-top: 30px">
+                    <div class="section-title">
+                        志望の動機、特技、好きな学科、アピールポイントなど
+                    </div>
+                    <div
+                        class="motivation-box"
+                        contenteditable="true"
+                        data-placeholder="志望動機、特技、アピールポイントなどを記入してください"
+                    ></div>
+                </div>
+                <div class="motivation-section">
+                    <div class="section-title">
+                        本人希望記入欄（特に給料・職種・勤務時間・勤務地・その他についての希望などがあれば記入）
+                    </div>
+                    <div
+                        class="motivation-box"
+                        contenteditable="true"
+                        data-placeholder="給料・職種・勤務時間・勤務地・その他についての希望を記入してください。"
+                    ></div>
+                </div>
+                <div class="controls">
+                    <!-- 
+                    <button class="btn" onclick="save()">データ保存</button>
+                    <button class="btn" onclick="load()">データ読込</button>
+                    <button class="btn" onclick="clear()">全て削除</button>
+                     -->
+                    <button class="btn" onclick="printDoc()">印刷</button>
+                    <button class="btn" onclick="exportPdf()">PDF出力</button>
+                </div>
+            </div>
+            <input
+                type="file"
+                id="or_file"
+                accept=".json"
+                style="display: none"
+            />
+        </div>
+    </body>
+</html>
