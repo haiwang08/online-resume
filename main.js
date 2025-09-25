@@ -76,6 +76,24 @@ function addHistory() {
     );
     fp = flatpickr("input.date-input:not(.flatpickr-input)", {
         dateFormat: "Y/m/d", // 显示为 2025-09-15
+        formatDate: (date, format, locale) => {
+            let timeInMini = date.getTime();
+            let offset = 2018;
+            let genngo = "令和";
+            if (timeInMini < shouwaEnd) {
+                offset = 1925;
+                genngo = "昭和";
+            }
+            if (timeInMini < heiseiEnd) {
+                offset = 1988;
+                genngo = "平成";
+            }
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            //const day = date.getDate();
+            const reiwaYear = year - offset;
+            return genngo + `${reiwaYear}年${month}月`;
+        },
     });
 }
 function removeHistory(b) {

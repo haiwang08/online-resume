@@ -20,6 +20,10 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+input {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+}
 .header h1 {
     font-size: 20px;
     font-weight: bold;
